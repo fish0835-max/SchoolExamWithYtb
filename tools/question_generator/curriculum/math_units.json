@@ -1,0 +1,126 @@
+{
+  "publisher": "kangxuan",
+  "subject": "math",
+  "grades": {
+    "1": {
+      "1": [
+        { "unit_order": 1, "unit_name": "1到10" },
+        { "unit_order": 2, "unit_name": "11到20" },
+        { "unit_order": 3, "unit_name": "加法" },
+        { "unit_order": 4, "unit_name": "減法" },
+        { "unit_order": 5, "unit_name": "比較大小" },
+        { "unit_order": 6, "unit_name": "形狀" },
+        { "unit_order": 7, "unit_name": "20以內的加減" }
+      ],
+      "2": [
+        { "unit_order": 1, "unit_name": "100以內的數" },
+        { "unit_order": 2, "unit_name": "100以內的加法" },
+        { "unit_order": 3, "unit_name": "100以內的減法" },
+        { "unit_order": 4, "unit_name": "錢幣" },
+        { "unit_order": 5, "unit_name": "時間（時和分）" },
+        { "unit_order": 6, "unit_name": "長度" },
+        { "unit_order": 7, "unit_name": "統計" }
+      ]
+    },
+    "2": {
+      "1": [
+        { "unit_order": 1, "unit_name": "100以內的數" },
+        { "unit_order": 2, "unit_name": "加法" },
+        { "unit_order": 3, "unit_name": "減法" },
+        { "unit_order": 4, "unit_name": "長度" },
+        { "unit_order": 5, "unit_name": "加法和減法" },
+        { "unit_order": 6, "unit_name": "時間" },
+        { "unit_order": 7, "unit_name": "乘法（一）" },
+        { "unit_order": 8, "unit_name": "乘法（二）" }
+      ],
+      "2": [
+        { "unit_order": 1, "unit_name": "1000以內的數" },
+        { "unit_order": 2, "unit_name": "加法" },
+        { "unit_order": 3, "unit_name": "減法" },
+        { "unit_order": 4, "unit_name": "公分和公尺" },
+        { "unit_order": 5, "unit_name": "除法（一）" },
+        { "unit_order": 6, "unit_name": "除法（二）" },
+        { "unit_order": 7, "unit_name": "分數" },
+        { "unit_order": 8, "unit_name": "角" },
+        { "unit_order": 9, "unit_name": "統計" }
+      ]
+    },
+    "3": {
+      "1": [
+        { "unit_order": 1, "unit_name": "10000以內的數" },
+        { "unit_order": 2, "unit_name": "加法" },
+        { "unit_order": 3, "unit_name": "減法" },
+        { "unit_order": 4, "unit_name": "乘法" },
+        { "unit_order": 5, "unit_name": "除法" },
+        { "unit_order": 6, "unit_name": "時間（分和秒）" },
+        { "unit_order": 7, "unit_name": "公里和公尺" },
+        { "unit_order": 8, "unit_name": "三角形與四邊形" }
+      ],
+      "2": [
+        { "unit_order": 1, "unit_name": "萬以上的數" },
+        { "unit_order": 2, "unit_name": "小數" },
+        { "unit_order": 3, "unit_name": "分數" },
+        { "unit_order": 4, "unit_name": "面積" },
+        { "unit_order": 5, "unit_name": "容積" },
+        { "unit_order": 6, "unit_name": "統計圖" },
+        { "unit_order": 7, "unit_name": "時間的加減" }
+      ]
+    },
+    "4": {
+      "1": [
+        { "unit_order": 1, "unit_name": "多位數的加減" },
+        { "unit_order": 2, "unit_name": "角" },
+        { "unit_order": 3, "unit_name": "乘法" },
+        { "unit_order": 4, "unit_name": "除法" },
+        { "unit_order": 5, "unit_name": "因數與倍數" },
+        { "unit_order": 6, "unit_name": "分數的加減" },
+        { "unit_order": 7, "unit_name": "周長與面積" }
+      ],
+      "2": [
+        { "unit_order": 1, "unit_name": "小數的加減" },
+        { "unit_order": 2, "unit_name": "小數的乘除" },
+        { "unit_order": 3, "unit_name": "分數的乘法" },
+        { "unit_order": 4, "unit_name": "長方體和正方體" },
+        { "unit_order": 5, "unit_name": "折線統計圖" },
+        { "unit_order": 6, "unit_name": "平均" }
+      ]
+    },
+    "5": {
+      "1": [
+        { "unit_order": 1, "unit_name": "最大公因數與最小公倍數" },
+        { "unit_order": 2, "unit_name": "分數的加減" },
+        { "unit_order": 3, "unit_name": "分數的乘法" },
+        { "unit_order": 4, "unit_name": "小數的乘除" },
+        { "unit_order": 5, "unit_name": "面積" },
+        { "unit_order": 6, "unit_name": "體積" },
+        { "unit_order": 7, "unit_name": "比率" }
+      ],
+      "2": [
+        { "unit_order": 1, "unit_name": "分數的除法" },
+        { "unit_order": 2, "unit_name": "比和比值" },
+        { "unit_order": 3, "unit_name": "正比與反比" },
+        { "unit_order": 4, "unit_name": "圓" },
+        { "unit_order": 5, "unit_name": "多邊形" },
+        { "unit_order": 6, "unit_name": "統計與機率" }
+      ]
+    },
+    "6": {
+      "1": [
+        { "unit_order": 1, "unit_name": "整數四則運算" },
+        { "unit_order": 2, "unit_name": "分數四則運算" },
+        { "unit_order": 3, "unit_name": "小數四則運算" },
+        { "unit_order": 4, "unit_name": "比和比值" },
+        { "unit_order": 5, "unit_name": "圓柱和圓錐" },
+        { "unit_order": 6, "unit_name": "統計與機率" }
+      ],
+      "2": [
+        { "unit_order": 1, "unit_name": "整數的運算" },
+        { "unit_order": 2, "unit_name": "分數的運算" },
+        { "unit_order": 3, "unit_name": "比例" },
+        { "unit_order": 4, "unit_name": "平面圖形" },
+        { "unit_order": 5, "unit_name": "立體圖形" },
+        { "unit_order": 6, "unit_name": "統計" }
+      ]
+    }
+  }
+}

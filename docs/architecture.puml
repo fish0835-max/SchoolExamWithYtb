@@ -1,0 +1,456 @@
+' ============================================================
+'  SchoolExam — Architecture Diagrams
+'  1. Package / Folder Structure
+'  2. Module Communication (Component)
+'  3. Main Learning Flow (Sequence)
+'  4. Plugin Extension Guide
+' ============================================================
+
+
+' ────────────────────────────────────────────────────────────
+' DIAGRAM 1: Package / Folder Structure
+' ────────────────────────────────────────────────────────────
+@startuml 1_folder_structure
+!theme plain
+skinparam packageStyle rectangle
+skinparam linetype ortho
+skinparam ArrowColor #555555
+skinparam PackageBackgroundColor #FAFAFA
+skinparam PackageBorderColor #AAAAAA
+skinparam NoteBorderColor #CCCCCC
+skinparam NoteBackgroundColor #FFFDE7
+
+title "SchoolExam — Folder Structure"
+
+package "lib/" {
+
+  package "main.dart / app.dart" as entrypoint <<Entry Point>> {
+    note right
+      main.dart:
+        • Load .env (YOUTUBE_API_KEY)
+        • Init Firebase
+        • Init SQLite (LocalDbService)
+        • Setup desktop window
+      app.dart:
+        • GoRouter 路由設定
+        • ProviderScope (Riverpod)
+    end note
+  }
+
+  package "core/" as core <<Core>> {
+
+    package "config/" as cfg {
+      [app_config.dart\n(AppConfig, ParentSettings)]
+    }
+
+    package "models/" as models {
+      [question.dart\n(Question, QuizResult)]
+      [user_session.dart\n(ChildUser, LearningSession)]
+    }
+
+    package "providers/" as providers {
+      [auth_provider.dart\n(activeChild, parentMode\nactiveSession)]
+    }
+
+    package "services/" as services {
+      [timer_service.dart\n(TimerNotifier)]
+      [question_service.dart\n(QuestionService\n+ Strategy pattern)]
+      [settings_service.dart\n(SettingsService)]
+      [firebase_service.dart]
+      [local_db_service.dart\n(SQLite)]
+      package "stub/" as stubs {
+        [youtube_player_stub.dart]
+        [window_manager_stub.dart]
+        [sqflite_stub.dart]
+      }
+    }
+  }
+
+  package "features/" as features <<Features>> {
+
+    package "child/" as child {
+      package "home/" {
+        [child_select_screen.dart]
+        [home_screen.dart]
+      }
+      package "quiz_overlay/" {
+        [quiz_overlay.dart]
+      }
+      package "youtube_player/" {
+        [youtube_player_screen.dart]
+        [web_player.dart\n(Web only)]
+        [web_player_stub.dart\n(Non-web stub)]
+      }
+    }
+
+    package "parent/" as parent {
+      package "pin_gate/" { [pin_gate_screen.dart] }
+      package "dashboard/" { [parent_dashboard_screen.dart] }
+      package "timer_config/" { [timer_config_screen.dart] }
+      package "subject_range/" { [subject_range_screen.dart] }
+      package "photo_upload/" { [photo_upload_screen.dart] }
+    }
+
+    package "profile/" {
+      [profile_screen.dart]
+    }
+  }
+}
+
+' ── Dependencies ──
+entrypoint ..> core : uses
+entrypoint ..> features : routes to
+
+features ..> core : reads providers\n& services
+child ..> providers : watches activeChild\ntimerProvider
+parent ..> services : reads/writes\nSettingsService
+[quiz_overlay.dart] ..> [question_service.dart] : fetches questions
+[quiz_overlay.dart] ..> [timer_service.dart] : question countdown
+[youtube_player_screen.dart] ..> [timer_service.dart] : YouTube timer
+[youtube_player_screen.dart] ..> [settings_service.dart] : load session minutes
+[question_service.dart] ..> [local_db_service.dart] : fixed questions
+[question_service.dart] ..> [firebase_service.dart] : AI / photo questions
+[settings_service.dart] ..> [app_config.dart] : defaults fallback
+
+@enduml
+
+
+' ────────────────────────────────────────────────────────────
+' DIAGRAM 2: Module Communication (Component Diagram)
+' ────────────────────────────────────────────────────────────
+@startuml 2_module_communication
+!theme plain
+skinparam componentStyle rectangle
+skinparam linetype ortho
+skinparam ArrowColor #444444
+skinparam ComponentBackgroundColor #E8F5E9
+skinparam ComponentBorderColor #2E7D32
+skinparam DatabaseBackgroundColor #E3F2FD
+skinparam DatabaseBorderColor #1565C0
+skinparam CloudBackgroundColor #FFF3E0
+skinparam CloudBorderColor #E65100
+
+title "SchoolExam — Module Communication"
+
+' ── UI Layer ──────────────────────────────────────────────
+package "UI Layer (Features)" {
+  component "ChildSelectScreen" as csel
+  component "HomeScreen" as home
+  component "YoutubePlayerScreen" as player
+  component "QuizOverlay" as quiz
+  component "PinGateScreen" as pin
+  component "ParentDashboardScreen" as dash
+  component "TimerConfigScreen" as tcfg
+  component "SubjectRangeScreen" as srng
+  component "PhotoUploadScreen" as photo
+}
+
+' ── State Layer ───────────────────────────────────────────
+package "State Layer (Riverpod Providers)" {
+  component "activeChildProvider\n[StateProvider<ChildUser?>]" as pchild
+  component "parentModeProvider\n[StateProvider<bool>]" as pparent
+  component "timerProvider\n[StateNotifierProvider<TimerNotifier>]" as ptimer
+  component "settingsServiceProvider\n[Provider<SettingsService>]" as psettings
+  component "questionServiceProvider\n[Provider<QuestionService>]" as pquestion
+}
+
+' ── Service Layer ─────────────────────────────────────────
+package "Service Layer" {
+  component "TimerNotifier\n(countdown logic)" as svc_timer
+  component "SettingsService\n(SharedPreferences)" as svc_settings
+  component "QuestionService\n(Strategy router)" as svc_question
+}
+
+' ── Data Layer ────────────────────────────────────────────
+package "Data Layer" {
+  database "SQLite\n(local questions)" as sqlite
+  cloud "Firebase Cloud Functions\n(AI / Photo generation)" as firebase
+  database "SharedPreferences\n(settings, PIN, recent videos)" as prefs
+}
+
+' ── Platform Layer ────────────────────────────────────────
+package "Platform Layer (Conditional Imports)" {
+  component "WebYoutubePlayer\n(HtmlElementView + iframe)" as web_player
+  component "YoutubePlayerFlutter\n(Native: Android/iOS/Desktop)" as native_player
+  component "WebYoutubeController\n(postMessage API)" as web_ctrl
+}
+
+' ── Routing ───────────────────────────────────────────────
+component "GoRouter\n(app.dart)" as router
+
+' ──── Arrows ────────────────────────────────────────────
+router --> csel : /child-select
+router --> home : /child/home
+router --> player : /child/player?videoId=
+router --> pin : /parent/pin
+router --> dash : /parent/dashboard
+router --> tcfg : /parent/timer-config
+router --> srng : /parent/subject-range
+router --> photo : /parent/photo-upload
+
+csel --> pchild : set active child
+home --> router : push player route
+player --> ptimer : setup / start\n(watch timerProvider)
+player --> psettings : load session minutes
+player --> web_ctrl : pauseVideo / loadVideo (web)
+player --> quiz : show overlay
+quiz --> pquestion : getNextQuestion()
+quiz --> ptimer : question countdown
+quiz --> player : onComplete callback
+pin --> psettings : verifyPin / savePin
+dash --> psettings : read settings
+tcfg --> psettings : save timer config
+srng --> psettings : save subject range
+photo --> psettings : set questionSource='photo'
+
+ptimer --> svc_timer : delegates
+psettings --> svc_settings : delegates
+pquestion --> svc_question : delegates
+
+svc_timer --> ptimer : emit TimerState
+svc_settings --> prefs : read / write JSON
+svc_question --> sqlite : FixedBankSource query
+svc_question --> firebase : AIGeneratedSource\n& PhotoSource call
+
+player --> web_player : (web)
+player --> native_player : (native)
+web_player --> web_ctrl : register HtmlElementView
+web_ctrl ..> web_player : postMessage(pauseVideo\nplayVideo\nloadVideoById)
+
+@enduml
+
+
+' ────────────────────────────────────────────────────────────
+' DIAGRAM 3: Main Learning Flow (Sequence)
+' ────────────────────────────────────────────────────────────
+@startuml 3_learning_flow
+!theme plain
+skinparam sequenceArrowColor #444444
+skinparam sequenceLifeLineBorderColor #888888
+skinparam sequenceParticipantBackgroundColor #E8F5E9
+skinparam sequenceParticipantBorderColor #2E7D32
+skinparam sequenceActorBackgroundColor #FFF9C4
+skinparam sequenceNoteBackgroundColor #FFFDE7
+skinparam sequenceNoteBorderColor #CCCCCC
+
+title "SchoolExam — Main Learning Flow (Sequence)"
+
+actor       "小朋友 / Child"   as child
+participant "HomeScreen"       as home
+participant "GoRouter"         as router
+participant "YoutubePlayerScreen" as player
+participant "TimerNotifier"    as timer
+participant "QuizOverlay"      as quiz
+participant "QuestionService"  as qsvc
+participant "SettingsService"  as ssvc
+participant "WebYoutubeController\n(iframe)" as iframe
+database    "SQLite / Firebase" as db
+
+child -> home : 輸入 YouTube 網址 / 貼上連結
+home -> router : context.push('/child/player?videoId=X')
+
+router -> player : build YoutubePlayerScreen
+activate player
+
+player -> ssvc : getSettings()
+ssvc --> player : ParentSettings\n(youtubeSessionMinutes, questionsToUnlock...)
+
+note over player
+  _showOverlay = true (預設)
+  Web: iframe 起始為 hidden
+end note
+
+player -> iframe : hideForOverlay()
+player -> quiz : show QuizOverlay(onComplete: _onQuizComplete)
+activate quiz
+
+quiz -> ssvc : getSettings()
+quiz -> qsvc : getNextQuestion('math')
+qsvc -> db : query (fixed / AI / photo)
+db --> qsvc : Question
+qsvc --> quiz : Question
+
+quiz --> child : 顯示題目 + 倒數計時
+
+child -> quiz : 選擇答案
+quiz -> quiz : checkAnswer()
+
+alt 答對 (正確答題數 >= questionsToUnlock)
+  quiz --> player : onComplete()
+  deactivate quiz
+
+  player -> timer : setup(youtubeDurationSeconds)
+  player -> timer : start()
+  player -> iframe : showAndPlay()
+  iframe --> child : 🎬 YouTube 開始播放
+
+  loop 計時中
+    timer -> timer : tick (每秒 -1)
+    timer --> player : emit TimerState\n(formattedTime, progress)
+    player --> child : 更新倒數 pill + 進度條
+  end
+
+  timer -> player : onExpired()
+  player -> iframe : pauseVideo() + hideForOverlay()
+  player -> quiz : show QuizOverlay again
+  note over player : 循環！需再答題才能繼續看
+
+else 答錯 / 超時
+  quiz --> child : 顯示正確答案
+  quiz -> qsvc : getNextQuestion() (下一題)
+  quiz --> child : 顯示下一題
+end
+
+deactivate player
+
+@enduml
+
+
+' ────────────────────────────────────────────────────────────
+' DIAGRAM 4: Plugin Extension Guide
+'   示範如何新增一個「新題目來源 Plugin」
+' ────────────────────────────────────────────────────────────
+@startuml 4_plugin_guide
+!theme plain
+skinparam classBackgroundColor #FAFAFA
+skinparam classBorderColor #888888
+skinparam classArrowColor #444444
+skinparam stereotypeCBackgroundColor #E3F2FD
+skinparam stereotypeABackgroundColor #FFF3E0
+skinparam noteBackgroundColor #F1F8E9
+skinparam noteBorderColor #558B2F
+skinparam linetype ortho
+
+title "SchoolExam — Plugin Extension Guide\n(以新增「題目來源」為例)"
+
+' ── Step 1: 實作 Strategy 介面 ──────────────────────────
+interface "QuestionSourceStrategy" as strategy <<interface>> {
+  + getQuestion(settings: ParentSettings): Future<Question?>
+}
+
+class "FixedBankSource" as fixed <<existing>> {
+  - _db: LocalDbService
+  + getQuestion(settings): Future<Question?>
+}
+
+class "AIGeneratedSource" as ai <<existing>> {
+  - _functions: FirebaseFunctions
+  + getQuestion(settings): Future<Question?>
+}
+
+class "PhotoSource" as photo <<existing>> {
+  + getQuestion(settings): Future<Question?>
+}
+
+class "🆕 YourNewSource" as newplugin <<NEW PLUGIN>> #D1FAE5 {
+  ' ─── Step 1 ───────────────────────────────────────────
+  ' 在 lib/core/services/ 新增一個 Dart 檔案
+  ' 例如: lib/core/services/gemini_source.dart
+  ' ─────────────────────────────────────────────────────
+  + getQuestion(settings): Future<Question?>
+}
+
+strategy <|.. fixed
+strategy <|.. ai
+strategy <|.. photo
+strategy <|.. newplugin
+
+note right of newplugin
+  **Step 1 — 新增檔案**
+  lib/core/services/gemini_source.dart
+
+  class GeminiSource implements QuestionSourceStrategy {
+    @override
+    Future<Question?> getQuestion(ParentSettings s) async {
+      // 呼叫 Gemini API 或其他資料源
+      return Question(...);
+    }
+  }
+end note
+
+' ── Step 2: 在 QuestionService 註冊 ──────────────────────
+class "QuestionService" as qsvc <<existing>> {
+  - _fixed: FixedBankSource
+  - _ai: AIGeneratedSource
+  - _photo: PhotoSource
+  - _🆕 _yourNew: YourNewSource
+  + getNextQuestion(subject): Future<Question?>
+  - _selectSource(settings): QuestionSourceStrategy
+}
+
+qsvc --> fixed : uses
+qsvc --> ai : uses
+qsvc --> photo : uses
+qsvc --> newplugin : ← Step 2: 在此新增
+
+note bottom of qsvc
+  **Step 2 — 註冊到 QuestionService**
+  lib/core/services/question_service.dart
+
+  // 新增 field
+  final _gemini = GeminiSource();
+
+  // 在 _selectSource() switch 新增 case
+  case 'gemini':
+    return _gemini;
+end note
+
+' ── Step 3: 更新 ParentSettings ──────────────────────────
+class "ParentSettings" as settings <<existing>> {
+  + questionSource: String
+  ' 'fixed' | 'ai' | 'photo' | 'mixed'
+  ' ← Step 3: 新增 'gemini' (或其他名稱)
+}
+
+qsvc --> settings : reads questionSource
+
+note right of settings
+  **Step 3 — 新增合法值**
+  lib/core/config/app_config.dart
+
+  // 可在 AppConfig 新增常數作為文件
+  static const String sourceGemini = 'gemini';
+end note
+
+' ── Step 4: 在 SubjectRangeScreen 新增 UI 選項 ──────────
+class "SubjectRangeScreen" as ui <<existing>> {
+  ' 讓家長在設定介面選擇新來源
+}
+
+settings <.. ui : save questionSource
+
+note right of ui
+  **Step 4 — 新增 UI 選項**
+  lib/features/parent/subject_range/
+  subject_range_screen.dart
+
+  // 在 questionSource 下拉 / 選擇器裡
+  // 新增一個選項 label
+  DropdownMenuItem(
+    value: 'gemini',
+    child: Text('Gemini AI'),
+  )
+end note
+
+' ── Step 5: (選用) 新增設定欄位 ──────────────────────────
+class "🆕 Plugin-specific Settings" as plgsettings <<optional>> #FFF3E0 {
+  ' 例如: geminiModelName, temperature...
+}
+
+settings <|-- plgsettings
+
+note right of plgsettings
+  **Step 5 — (選用) Plugin 專屬設定**
+  如果 plugin 需要額外參數，
+  在 ParentSettings 新增欄位，
+  並更新 toJson() / fromJson()
+end note
+
+legend right
+  | 色塊 | 說明 |
+  | <back:#D1FAE5>綠色</back> | 需要新增的檔案 / 程式碼 |
+  | <back:#FFF3E0>橘色</back> | 選用修改 |
+  | 白色 | 既有程式碼（小幅修改） |
+endlegend
+
+@enduml

@@ -1,0 +1,94 @@
+# ============================================================
+# ⚠️  API KEYS & SECRETS — 絕對不可上傳至 Git
+# ============================================================
+
+# 所有 .env 系列（注意：gitignore 不支援行內注釋，規則需單獨一行）
+.env
+.env.*
+
+# 明確允許範本檔（negation 必須放在 .env.* 之後）
+!.env.example
+!**/.env.example
+
+# Flutter 執行期環境（bundle 進 App，但不進 git）
+assets/.env
+
+# Firebase Cloud Functions 本機環境
+functions/.env
+
+# 題庫工具本機環境
+tools/question_generator/.env
+
+# Firebase 設定檔（含 API keys，由 flutterfire configure 重新產生）
+# Firebase 官方雖稱這些 key 為「公開」，但仍統一不進 git
+lib/firebase_options.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+macos/Runner/GoogleService-Info.plist
+
+# ============================================================
+# Flutter
+# ============================================================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+*.g.dart
+*.freezed.dart
+
+# ============================================================
+# IDE
+# ============================================================
+.idea/
+.vscode/
+*.iml
+
+# ============================================================
+# iOS
+# ============================================================
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
+
+# ============================================================
+# Android
+# ============================================================
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+
+# ============================================================
+# macOS
+# ============================================================
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Flutter/ephemeral
+
+# ============================================================
+# Windows
+# ============================================================
+**/windows/flutter/generated_plugin_registrant.cc
+**/windows/flutter/generated_plugin_registrant.h
+**/windows/flutter/generated_plugins.cmake
+
+# ============================================================
+# Node.js
+# ============================================================
+node_modules/
+**/node_modules/
+**/dist/
+tools/question_generator/output/*.json
+tools/question_generator/output/*.sql
+functions/lib/

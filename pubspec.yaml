@@ -1,0 +1,83 @@
+name: school_exam
+description: 康軒國小學習遊戲 - 讓孩子在看 YouTube 的同時學習康軒課程
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+
+  # Routing
+  go_router: ^13.2.0
+
+  # Backend - Firebase
+  firebase_core: ^3.6.0
+  cloud_firestore: ^5.4.4
+  cloud_functions: 5.6.2
+  firebase_storage: ^12.3.3
+
+  # YouTube player (Android / iOS / Windows / macOS)
+  youtube_player_flutter: ^9.0.2
+
+  # Local storage
+  shared_preferences: ^2.2.2
+  sqflite: ^2.3.0
+  path: ^1.8.3
+
+  # Image handling
+  image_picker: ^1.0.7
+  flutter_image_compress: ^2.1.0
+
+  # Animations
+  lottie: ^3.0.0
+
+  # Window management (desktop)
+  window_manager: ^0.3.8
+
+  # Environment
+  flutter_dotenv: ^5.1.0
+
+  # Utilities
+  crypto: ^3.0.3
+  uuid: ^4.3.3
+  intl: ^0.19.0
+  http: ^1.2.0
+
+  # UI
+  cupertino_icons: ^1.0.6
+  flutter_svg: ^2.0.9
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.8
+  riverpod_generator: ^2.3.9
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/questions/
+    - assets/animations/
+    - assets/images/
+    - assets/.env          # Flutter 執行期 API keys（gitignored，需手動建立）
+
+  # fonts: 暫時移除，使用系統預設字體
+  # 如需中文字體，下載 NotoSansTC 後加回：
+  # fonts:
+  #   - family: NotoSansTC
+  #     fonts:
+  #       - asset: assets/fonts/NotoSansTC-Regular.ttf
+  #       - asset: assets/fonts/NotoSansTC-Bold.ttf
+  #         weight: 700

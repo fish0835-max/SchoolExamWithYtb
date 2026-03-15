@@ -1,0 +1,28 @@
+{
+  "name": "school-exam-question-generator",
+  "version": "1.0.0",
+  "description": "康軒國小題庫生成工具 - 使用 Claude API 自動出題",
+  "main": "dist/generator.js",
+  "scripts": {
+    "generate": "ts-node generator.ts",
+    "build": "tsc",
+    "validate": "ts-node validator.ts"
+  },
+  "bin": {
+    "generate-questions": "./dist/generator.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "commander": "^12.0.0",
+    "dotenv": "^16.4.5",
+    "ora": "^8.0.1",
+    "chalk": "^5.3.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/uuid": "^9.0.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

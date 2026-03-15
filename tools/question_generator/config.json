@@ -1,0 +1,13 @@
+{
+  "claudeModel": "claude-haiku-4-5-20251001",
+  "questionsPerUnit": 5,
+  "questionTypes": ["multiple_choice"],
+  "difficultyDistribution": {
+    "1": 0.6,
+    "2": 0.3,
+    "3": 0.1
+  },
+  "delayBetweenRequestsMs": 500,
+  "maxRetries": 3,
+  "outputDir": "./output"
+}

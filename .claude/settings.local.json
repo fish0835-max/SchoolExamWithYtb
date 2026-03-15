@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(cmd /c \"flutter pub get\" 2>&1)"
+    ]
+  }
+}
