@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 題庫：所有人可讀（公開內容）
+    match /questions/{questionId} {
+      allow read: if true;
+      allow write: if false; // 只能透過 Cloud Function 寫入
+    }
+
+    // 課程單元：所有人可讀
+    match /curriculum_units/{unitId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // 家庭資料：只有透過後端操作（Cloud Functions）
+    // 前端 MVP 暫用寬鬆規則，正式上線需搭配 Firebase Auth
+    match /families/{familyId} {
+      allow read, write: if true; // TODO: 正式環境改為 Firebase Auth 驗證
+
+      match /users/{userId} {
+        allow read, write: if true;
+
+        match /settings/{subject} {
+          allow read, write: if true;
+        }
+
+        match /sessions/{sessionId} {
+          allow read, write: if true;
+        }
+      }
+    }
+  }
+}

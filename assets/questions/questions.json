@@ -1,0 +1,768 @@
+{
+  "version": "1.0.0",
+  "subject": "math",
+  "publisher": "kangxuan",
+  "generated_at": "2026-03-15T06:10:23.865Z",
+  "questions": [
+    {
+      "id": "fdf501ab-f69d-4b21-b167-0cc9c129fe56",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 1,
+      "unit_name": "100以內的數",
+      "question_text": "小美有 23 個紅球，媽媽又給她 15 個藍球。小美現在一共有幾個球？",
+      "options": [
+        "38 個",
+        "37 個",
+        "39 個",
+        "28 個"
+      ],
+      "correct_answer": "38 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "32aa21fc-f834-493a-848b-8d126bb01330",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 1,
+      "unit_name": "100以內的數",
+      "question_text": "小美有 23 個蘋果，媽媽又給她 15 個蘋果。小美現在一共有幾個蘋果？",
+      "options": [
+        "37 個",
+        "38 個",
+        "39 個",
+        "40 個"
+      ],
+      "correct_answer": "38 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "11f3246c-70c4-447c-8765-c95ae8dcde4e",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 1,
+      "unit_name": "100以內的數",
+      "question_text": "小明有 23 個蘋果，媽媽又給他 15 個蘋果。小明現在一共有幾個蘋果？",
+      "options": [
+        "38 個",
+        "39 個",
+        "37 個",
+        "40 個"
+      ],
+      "correct_answer": "38 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "932d9fcf-0f6f-4bf6-bb20-87d5f90204c6",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 1,
+      "unit_name": "100以內的數",
+      "question_text": "小美有 23 元，小王有 45 元。小美和小王一起買一個文具盒要 60 元。他們的錢合起來夠嗎？還是不夠？如果不夠，還差幾元？",
+      "options": [
+        "A. 夠了，還剩 8 元",
+        "B. 不夠，還差 8 元",
+        "C. 不夠，還差 15 元",
+        "D. 夠了，還剩 15 元"
+      ],
+      "correct_answer": "B. 不夠，還差 8 元",
+      "question_type": "multiple_choice",
+      "difficulty": 3
+    },
+    {
+      "id": "017a039c-e900-4664-ae70-ffc5e5465904",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 1,
+      "unit_name": "100以內的數",
+      "question_text": "媽媽買了 23 個蘋果，爸爸又買了 15 個蘋果。一共有幾個蘋果？",
+      "options": [
+        "A. 37 個",
+        "B. 38 個",
+        "C. 36 個",
+        "D. 39 個"
+      ],
+      "correct_answer": "B. 38 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "587019ff-155c-4b85-a662-ad43a37e1475",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 2,
+      "unit_name": "加法",
+      "question_text": "小明有 15 個蘋果，媽媽又給他 8 個蘋果。小明現在一共有幾個蘋果？",
+      "options": [
+        "23 個",
+        "22 個",
+        "24 個",
+        "7 個"
+      ],
+      "correct_answer": "23 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "aca4d68d-05f4-4f16-8ed2-80d4287d1ebc",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 2,
+      "unit_name": "加法",
+      "question_text": "媽媽買了 23 個蘋果，又買了 15 個蘋果。媽媽一共買了幾個蘋果？",
+      "options": [
+        "A. 37 個",
+        "B. 38 個",
+        "C. 39 個",
+        "D. 36 個"
+      ],
+      "correct_answer": "B. 38 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "ab9315b0-155f-45db-bee5-8bf6c21b87a5",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 2,
+      "unit_name": "加法",
+      "question_text": "小美有 23 個紅球，媽媽又給她 18 個藍球。小美現在一共有幾個球？",
+      "options": [
+        "A. 41 個球",
+        "B. 40 個球",
+        "C. 31 個球",
+        "D. 51 個球"
+      ],
+      "correct_answer": "A. 41 個球",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "9c498e61-c121-4e79-8301-baa23e3ddbb9",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 4,
+      "unit_name": "長度",
+      "question_text": "小美用公分尺量鉛筆的長度，量出來是 12 公分。小剛的鉛筆比小美的短 3 公分。小剛的鉛筆長度是幾公分？",
+      "options": [
+        "9 公分",
+        "15 公分",
+        "12 公分",
+        "10 公分"
+      ],
+      "correct_answer": "9 公分",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "07da7612-f2b8-4cd8-b508-3e60b9b8143a",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 5,
+      "unit_name": "加法和減法",
+      "question_text": "小明有 23 個蘋果，媽媽又給他 15 個蘋果。小明現在一共有幾個蘋果？",
+      "options": [
+        "A. 37 個",
+        "B. 38 個",
+        "C. 39 個",
+        "D. 40 個"
+      ],
+      "correct_answer": "B. 38 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "ec6c61c0-82f6-4077-a0b7-b045a98088d8",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 6,
+      "unit_name": "時間",
+      "question_text": "小美早上 8 點去上學，下午 3 點放學回家。小美在學校待了幾個小時？",
+      "options": [
+        "5 小時",
+        "6 小時",
+        "7 小時",
+        "8 小時"
+      ],
+      "correct_answer": "7 小時",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "176522b4-2c9e-455f-b7c3-3ca1306d8887",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 6,
+      "unit_name": "時間",
+      "question_text": "小明早上 8 點開始做功課，做了 1 小時 30 分鐘後休息。請問小明在幾點休息？",
+      "options": [
+        "8 點 30 分",
+        "9 點",
+        "9 點 30 分",
+        "10 點"
+      ],
+      "correct_answer": "9 點 30 分",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "94b4fa34-a1bd-4cf9-96cb-d3f0ce05ad07",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 6,
+      "unit_name": "時間",
+      "question_text": "小美早上 8 點開始做功課，做了 1 小時 30 分鐘後休息。小美休息時是幾點？",
+      "options": [
+        "8 點 30 分",
+        "9 點",
+        "9 點 30 分",
+        "10 點"
+      ],
+      "correct_answer": "9 點 30 分",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "2f12dcf8-9efd-467f-a1a4-dffc8c23f4bd",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 6,
+      "unit_name": "時間",
+      "question_text": "小美在下午 2 點開始做功課，做了 30 分鐘後休息。請問小美什麼時候開始休息？",
+      "options": [
+        "下午 2 點 30 分",
+        "下午 3 點",
+        "下午 2 點 20 分",
+        "下午 1 點 30 分"
+      ],
+      "correct_answer": "下午 2 點 30 分",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "a8485006-471d-4573-98c9-344ef065a582",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 7,
+      "unit_name": "乘法（一）",
+      "question_text": "媽媽買了 3 盒餅乾，每盒有 6 片。媽媽一共買了幾片餅乾？",
+      "options": [
+        "9 片",
+        "18 片",
+        "12 片",
+        "3 片"
+      ],
+      "correct_answer": "18 片",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "1bd3a703-d3fa-464e-8358-d5bc0799d512",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 7,
+      "unit_name": "乘法（一）",
+      "question_text": "小美買了 3 盒彩色筆，每盒裡有 6 支。小美又買了 2 盒，每盒裡也有 6 支。小美一共買了幾支彩色筆？",
+      "options": [
+        "18 支",
+        "24 支",
+        "30 支",
+        "36 支"
+      ],
+      "correct_answer": "30 支",
+      "question_type": "multiple_choice",
+      "difficulty": 3
+    },
+    {
+      "id": "687e644b-a974-471f-9fd3-eab1fd5e0422",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 7,
+      "unit_name": "乘法（一）",
+      "question_text": "有 3 個盤子，每個盤子裡放 4 個蘋果。一共有幾個蘋果？",
+      "options": [
+        "7 個",
+        "12 個",
+        "11 個",
+        "8 個"
+      ],
+      "correct_answer": "12 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "07a63ce6-9d73-4e5b-8767-b99598cb8226",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 7,
+      "unit_name": "乘法（一）",
+      "question_text": "小美有 3 盒彩色筆，每盒裡有 6 枝彩色筆。小美一共有幾枝彩色筆？",
+      "options": [
+        "A. 9 枝",
+        "B. 18 枝",
+        "C. 15 枝",
+        "D. 12 枝"
+      ],
+      "correct_answer": "B. 18 枝",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "2ce9b6d3-da25-415e-827b-0a2f7162b87e",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 8,
+      "unit_name": "乘法（二）",
+      "question_text": "有 6 個盤子，每個盤子裡放 4 個蘋果。一共有幾個蘋果？",
+      "options": [
+        "24 個",
+        "10 個",
+        "20 個",
+        "28 個"
+      ],
+      "correct_answer": "24 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "057eac26-8e5e-4e1f-882c-fbce321d92da",
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 8,
+      "unit_name": "乘法（二）",
+      "question_text": "媽媽買了 3 盒餅乾，每盒裡有 6 片餅乾。後來又買了 2 盒，每盒也是 6 片。媽媽一共買了多少片餅乾？",
+      "options": [
+        "18 片",
+        "24 片",
+        "30 片",
+        "36 片"
+      ],
+      "correct_answer": "30 片",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "142339ca-8291-4308-afbf-6dd789c4fdaa",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 1,
+      "unit_name": "1000以內的數",
+      "question_text": "小明有 3 百、5 十和 7 個一。請問小明一共有多少？",
+      "options": [
+        "357",
+        "375",
+        "537",
+        "753"
+      ],
+      "correct_answer": "357",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "6bf685fe-d8ad-46e4-9493-2f4518c6996c",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 1,
+      "unit_name": "1000以內的數",
+      "question_text": "小美有 3 個百位數，分別是 200、300 和 400。她把這三個數加起來，再減去 100，結果是多少？",
+      "options": [
+        "700",
+        "800",
+        "900",
+        "600"
+      ],
+      "correct_answer": "800",
+      "question_type": "multiple_choice",
+      "difficulty": 3
+    },
+    {
+      "id": "b25ec964-05f3-4cc3-ba50-a3e858a30a30",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 1,
+      "unit_name": "1000以內的數",
+      "question_text": "小明有 2 個百位、4 個十位和 5 個一位。請問小明一共有多少？",
+      "options": [
+        "245",
+        "254",
+        "425",
+        "524"
+      ],
+      "correct_answer": "245",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "4a3f4ac8-a9b4-4e53-975e-75252ce8218e",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 2,
+      "unit_name": "加法",
+      "question_text": "小美有 23 個蘋果，媽媽又給她 15 個蘋果。小美現在一共有幾個蘋果？",
+      "options": [
+        "38 個",
+        "39 個",
+        "37 個",
+        "40 個"
+      ],
+      "correct_answer": "38 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "4b28cfa3-b000-4601-b2b5-56ad3deaa71a",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 2,
+      "unit_name": "加法",
+      "question_text": "媽媽買了 23 個蘋果，又買了 15 個蘋果。媽媽一共買了幾個蘋果？",
+      "options": [
+        "38 個",
+        "37 個",
+        "39 個",
+        "28 個"
+      ],
+      "correct_answer": "38 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "04edce2d-0a20-45bf-a592-6b9de8bcc929",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 2,
+      "unit_name": "加法",
+      "question_text": "小美有 24 個紅色積木，媽媽又給她 18 個藍色積木。小美現在一共有幾個積木？",
+      "options": [
+        "A. 36 個",
+        "B. 42 個",
+        "C. 40 個",
+        "D. 44 個"
+      ],
+      "correct_answer": "B. 42 個",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "2dfcac84-a74e-44f8-9925-7fa5a860694e",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 2,
+      "unit_name": "加法",
+      "question_text": "小美有 23 個蘋果，媽媽又給她 15 個蘋果。小美現在一共有幾個蘋果？",
+      "options": [
+        "38 個",
+        "37 個",
+        "39 個",
+        "28 個"
+      ],
+      "correct_answer": "38 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "bdb9a963-0b41-4499-85d5-629c40d04629",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 3,
+      "unit_name": "減法",
+      "question_text": "媽媽買了 45 個蘋果，先給奶奶 12 個，再給叔叔 18 個。媽媽還剩下幾個蘋果？",
+      "options": [
+        "15 個",
+        "18 個",
+        "27 個",
+        "33 個"
+      ],
+      "correct_answer": "15 個",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "2304acd2-8c00-4197-af0a-4ba158c36ab6",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 4,
+      "unit_name": "公分和公尺",
+      "question_text": "小明量了一條繩子，長度是 85 公分。如果用公尺來表示，下列哪個答案正確？",
+      "options": [
+        "A. 85 公尺",
+        "B. 8 公尺 5 公分",
+        "C. 0 公尺 85 公分",
+        "D. 58 公分"
+      ],
+      "correct_answer": "B. 8 公尺 5 公分",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "0c0bc0ca-1d3f-4410-aa40-67ba39939d32",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 6,
+      "unit_name": "除法（二）",
+      "question_text": "有 24 個蘋果，平均分給 4 個小朋友，每個小朋友分得幾個蘋果？",
+      "options": [
+        "A. 6 個",
+        "B. 8 個",
+        "C. 5 個",
+        "D. 7 個"
+      ],
+      "correct_answer": "A. 6 個",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "7de6252b-73f4-499a-9382-61ea4b3f89fa",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 7,
+      "unit_name": "分數",
+      "question_text": "媽媽買了一個披薩，平均分成 4 等份。小明吃了 1 份，小華吃了 1 份。請問他們一共吃了披薩的幾分之幾？",
+      "options": [
+        "1/4",
+        "2/4",
+        "3/4",
+        "2/8"
+      ],
+      "correct_answer": "2/4",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "191311e5-ee02-484f-b021-6d70baf64e4b",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 7,
+      "unit_name": "分數",
+      "question_text": "媽媽買了一個披薩，把它平均分成 8 份。小明吃了 3 份，小花吃了 2 份。請問小明和小花一共吃了披薩的幾分之幾？",
+      "options": [
+        "5/8",
+        "5/16",
+        "3/8",
+        "2/8"
+      ],
+      "correct_answer": "5/8",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "b3334786-3215-4172-8f10-23514483af8d",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 7,
+      "unit_name": "分數",
+      "question_text": "媽媽買了一個披薩，把它平均分成 4 份。小明吃了其中的 1 份。請問小明吃了披薩的幾分之幾？",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/3",
+        "4/1"
+      ],
+      "correct_answer": "1/4",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "3b3ec224-5f94-4cd5-aca2-a26dc5318181",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 7,
+      "unit_name": "分數",
+      "question_text": "媽媽買了一個披薩，平均分成 4 等份。小明吃了其中的 1 份。小明吃了披薩的幾分之幾？",
+      "options": [
+        "4 分之 1",
+        "1 分之 4",
+        "3 分之 1",
+        "4 分之 3"
+      ],
+      "correct_answer": "4 分之 1",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "4e7a7cdb-da05-4e30-bdab-cfb04b6de8a7",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 7,
+      "unit_name": "分數",
+      "question_text": "媽媽買了一個披薩，平均分成 4 等份。小明吃了其中的 1 份。請問小明吃了這個披薩的幾分之幾？",
+      "options": [
+        "4 分之 1",
+        "1 分之 4",
+        "2 分之 1",
+        "4 分之 4"
+      ],
+      "correct_answer": "4 分之 1",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "49d15f47-cc83-4b0b-8c99-2ab80bdf1949",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 8,
+      "unit_name": "角",
+      "question_text": "小美用三角板量角度。她先量出一個直角是 90 度，再量出另一個角比直角少 30 度。那麼另一個角是幾度？",
+      "options": [
+        "60 度",
+        "70 度",
+        "80 度",
+        "120 度"
+      ],
+      "correct_answer": "60 度",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "b8a0870d-9b97-420c-bb7d-2d6394c27ab0",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 8,
+      "unit_name": "角",
+      "question_text": "小美用尺和量角器量了三個角。第一個角是 45 度，第二個角是 35 度。如果把這兩個角合在一起，合起來是幾度？",
+      "options": [
+        "80 度",
+        "70 度",
+        "90 度",
+        "75 度"
+      ],
+      "correct_answer": "80 度",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "9dc4ec6a-bb00-493a-b844-b967ed7476c5",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 8,
+      "unit_name": "角",
+      "question_text": "小美用兩條直線相交畫出一個角。如果其中一個角是 30 度，那麼與它相對的角是幾度？",
+      "options": [
+        "30 度",
+        "60 度",
+        "90 度",
+        "150 度"
+      ],
+      "correct_answer": "30 度",
+      "question_type": "multiple_choice",
+      "difficulty": 1
+    },
+    {
+      "id": "dca24988-4a15-4d2f-8308-670c7b25cc35",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 8,
+      "unit_name": "角",
+      "question_text": "小美用角度尺量一個角，發現這個角比直角小 15°。請問這個角是幾度？",
+      "options": [
+        "60°",
+        "75°",
+        "85°",
+        "105°"
+      ],
+      "correct_answer": "75°",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    },
+    {
+      "id": "38513be3-e363-4f7b-9d71-ec952960b908",
+      "grade": 2,
+      "semester": 2,
+      "subject": "math",
+      "publisher": "kangxuan",
+      "unit_order": 8,
+      "unit_name": "角",
+      "question_text": "小美用兩根吸管組成一個角。她先擺出一個直角，然後把其中一根吸管轉動，使得這個角變成了一個比直角更開的角。現在小美擺出的角是什麼角？",
+      "options": [
+        "銳角",
+        "直角",
+        "鈍角",
+        "平角"
+      ],
+      "correct_answer": "鈍角",
+      "question_type": "multiple_choice",
+      "difficulty": 2
+    }
+  ]
+}

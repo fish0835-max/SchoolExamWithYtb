@@ -1,0 +1,15 @@
+name: youtube_player_iframe_web
+description: Patched web implementation - fixes platformViewRegistry for Flutter 3.19+
+version: 1.0.4
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  webview_flutter: ^3.0.4
+  webview_flutter_platform_interface: ^1.9.3
