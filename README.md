@@ -1,7 +1,7 @@
 # 國小學習遊戲
 
 讓孩子在看 YouTube 的同時學習課程。
-孩子看 YouTube 30 分鐘後，畫面強制被題目覆蓋，答對才能繼續看。
+進入播放頁先答對題目才能開始看，答對後計時 30 分鐘，時間到畫面強制被題目覆蓋，答對才能繼續看。
 
 ## 功能
 
@@ -10,17 +10,18 @@
 - 📝 全螢幕題目覆蓋層（無法關閉，答對才解除）
 - 🔒 家長 PIN 保護設定（孩子無法存取設定）
 - 📚 支援數學 + 國文，1-6 年級
-- 🤖 AI 動態出題（Claude API）
+- 🤖 AI 動態出題（Claude API via Firebase Cloud Functions）
 - 📷 照片出題（上傳教材照片）
+- 🔍 影片內搜尋（關鍵字或貼上 YouTube 網址）
 - 📊 學習記錄統計
 
 ## 技術棧
 
 | 層級 | 技術 |
 |------|------|
-| App | Flutter (Android / iOS / Windows / macOS) |
-| 後端 | Supabase (PostgreSQL + Edge Functions) |
-| AI 出題 | Claude API (claude-haiku-4-5) |
+| App | Flutter (Android / iOS / Windows / macOS / Web) |
+| 後端 | Firebase (Cloud Functions + Firestore + Storage) |
+| AI 出題 | Claude API（透過 Firebase Cloud Functions 呼叫） |
 | 狀態管理 | Riverpod |
 | 路由 | go_router |
 
@@ -28,57 +29,70 @@
 
 ### 前置需求
 
-- [Flutter SDK](https://flutter.dev) >= 3.0
-- [Supabase](https://supabase.com) 帳號
-- [Claude API Key](https://console.anthropic.com)
-- Node.js >= 18（題庫生成工具）
+- [Flutter SDK](https://flutter.dev) >= 3.19（需要 `dart:ui_web`）
+- [Firebase CLI](https://firebase.google.com/docs/cli) + Firebase 專案
+- [YouTube Data API v3 Key](https://console.cloud.google.com)（關鍵字搜尋功能）
+- Node.js >= 18（Firebase Functions 與題庫生成工具）
 
-### 1. 設定 Supabase
+### 1. 設定 Firebase
 
 ```bash
-# 安裝 Supabase CLI
-npm install -g @supabase/cli
+# 安裝 Firebase CLI
+npm install -g firebase-tools
 
-# 初始化（或連線到已有專案）
-supabase link --project-ref YOUR_PROJECT_REF
+# 登入並連結專案
+firebase login
+firebase use --add
 
-# 執行資料庫 migration
-supabase db push
+# 部署 Cloud Functions
+cd functions
+npm install
+cd ..
+firebase deploy --only functions
 
-# 部署 Edge Functions
-supabase functions deploy generate-question
-supabase functions deploy generate-from-photo
-
-# 設定 Edge Function 環境變數
-supabase secrets set CLAUDE_API_KEY=your-claude-api-key
+# 設定 Cloud Functions 環境變數
+firebase functions:secrets:set CLAUDE_API_KEY
 ```
 
-### 2. 生成題庫（Phase 1）
+> Firebase 設定檔（`google-services.json` / `GoogleService-Info.plist` / `firebase_options.dart`）
+> 已加入 `.gitignore`，需自行從 Firebase Console 下載放置。
+
+### 2. 設定 YouTube API Key
+
+```bash
+# 複製範本並填入 key
+cp assets/.env.example assets/.env
+# 編輯 assets/.env，填入：
+# YOUTUBE_API_KEY=your-youtube-data-api-v3-key
+```
+
+### 3. 生成題庫
 
 ```bash
 cd tools/question_generator
 npm install
 
-# 設定 Claude API Key
-export CLAUDE_API_KEY=your-api-key
-
 # 生成 2 年級數學題庫
 npx ts-node generator.ts --subject=math --grade=2 --output=json
 
-# 輸出至 output/questions.json，複製到 Flutter assets
+# 複製到 Flutter assets
 cp output/questions.json ../../assets/questions/questions.json
 ```
 
-### 3. 執行 Flutter App
+### 4. 執行 Flutter App
 
 ```bash
 # 安裝依賴
 flutter pub get
 
-# 執行（需傳入 Supabase 設定）
-flutter run \
-  --dart-define=SUPABASE_URL=https://your-project.supabase.co \
-  --dart-define=SUPABASE_ANON_KEY=your-anon-key
+# 執行（Web）
+flutter run -d chrome
+
+# 執行（Android）
+flutter run -d android
+
+# 執行（Windows）
+flutter run -d windows
 ```
 
 ## 專案結構
@@ -86,17 +100,17 @@ flutter run \
 ```
 SchoolExam/
 ├── lib/
-│   ├── main.dart                    # 程式入口
-│   ├── app.dart                     # 路由設定
+│   ├── main.dart                    # 程式入口（Firebase / dotenv / SQLite 初始化）
+│   ├── app.dart                     # GoRouter 路由設定
 │   ├── core/
-│   │   ├── config/app_config.dart   # 設定常數
-│   │   ├── models/                  # 資料模型
-│   │   ├── providers/               # Riverpod 狀態
-│   │   └── services/                # 商業邏輯服務
+│   │   ├── config/app_config.dart   # 設定常數（含 debug timer 覆寫）
+│   │   ├── models/                  # 資料模型（Question, ChildUser...）
+│   │   ├── providers/               # Riverpod 全域狀態
+│   │   └── services/                # 商業邏輯（Timer, Question, Settings...）
 │   └── features/
 │       ├── child/                   # 孩子端（孩子可見）
-│       │   ├── home/                # 主畫面
-│       │   ├── youtube_player/      # YouTube 播放器
+│       │   ├── home/                # 主畫面（YouTube 網址輸入）
+│       │   ├── youtube_player/      # YouTube 播放器（Web iframe / Native）
 │       │   └── quiz_overlay/        # 題目覆蓋層
 │       ├── parent/                  # 家長端（PIN 保護）
 │       │   ├── pin_gate/            # PIN 輸入頁
@@ -106,10 +120,10 @@ SchoolExam/
 │       │   └── photo_upload/        # 照片出題
 │       └── profile/                 # 學習記錄
 ├── assets/
+│   ├── .env                         # API Keys（不上傳 Git）
 │   └── questions/questions.json     # 靜態題庫（可離線使用）
-├── supabase/
-│   ├── migrations/                  # 資料庫結構
-│   └── functions/                   # Edge Functions
+├── functions/                       # Firebase Cloud Functions (TypeScript)
+│   └── src/index.ts                 # generateQuestion / generateFromPhoto
 └── tools/
     └── question_generator/          # 題庫生成工具
 ```
@@ -118,8 +132,8 @@ SchoolExam/
 
 ### 孩子使用
 1. 選擇頭像（選孩子）
-2. 搜尋或選擇 YouTube 影片
-3. 開始計時，正常觀看
+2. 輸入或貼上 YouTube 網址，或使用搜尋功能
+3. **先答對題目**才能開始播放
 4. 計時結束 → 畫面被題目覆蓋
 5. 答對題目 → 覆蓋消失，繼續觀看
 6. 計時器重置，重複流程
@@ -347,8 +361,8 @@ classDiagram
 ## 驗證
 
 ```bash
-# 測試計時器（設為 1 分鐘）
-# 在 TimerConfigScreen 設定為 1 分鐘，確認覆蓋層出現
+# 測試計時器（app_config.dart 設 debugDurationSeconds = 30）
+# 確認 30 秒後覆蓋層出現
 
 # 驗證孩子模式
 # 確認設定入口不可見（無法點選進入）
